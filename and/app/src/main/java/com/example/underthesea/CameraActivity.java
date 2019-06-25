@@ -16,23 +16,12 @@ public class CameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        checkP();
-
+        CameraOn();
     }
 
-    private void checkP(){
-        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
-
-
-
-        if(permissionCheck== PackageManager.PERMISSION_DENIED){
-            Intent intent2 = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent2);
-        } else {
-            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivity(intent);
-        }
+    private void CameraOn(){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivity(intent);
     }
 
 }
-
